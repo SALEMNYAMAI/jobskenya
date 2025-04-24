@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Job Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #3498db; /* Blue background */
+            color: black;
+            padding: 30px;
+            text-align: center;
+            font-size: 36px; /* Increased font size */
+            font-weight: bold; /* Bold font */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .job-list {
+            display: none;
+        }
+        .job-category:hover .job-list {
+            display: block;
+        }
+        .button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .payment-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .payment-btn:hover {
+            background-color: #c0392b;
+        }
+        .paybill-section {
+            background-color: #e9f7fc;
+            border: 1px solid #3498db;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .dialog-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .dialog-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .dialog-box button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dialog-box button:hover {
+            background-color: #27ae60;
+        }
+        .dialog-box .cancel-btn {
+            background-color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Jobs kenya</h1>
+    <nav>
+        <ul>
+            <li><a href="#engineering">Engineering</a></li>
+            <li><a href="#healthcare">Healthcare</a></li>
+            <li><a href="#it">IT</a></li>
+            <li><a href="#marketing">Marketing</a></li>
+            <li><a href="#nairobi-jobs">Jobs Around Nairobi</a></li> <!-- New category -->
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Job Categories -->
+    <section id="engineering" class="job-category">
+        <h2>Engineering Jobs</h2>
+        <ul class="job-list">
+            <li><a href="#apply-form" onclick="showApplyForm('Mechanical Engineer - Nairobi')">Mechanical Engineer - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Civil Engineer - Mombasa')">Civil Engineer - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Electrical Engineer - Thika')">Electrical Engineer - Thika</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Architect - Nairobi')">Architect - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Structural Engineer - Mombasa')">Structural Engineer - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Civil Surveyor - Thika')">Civil Surveyor - Thika</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Project Manager - Nairobi')">Project Manager - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Site Supervisor - Mombasa')">Site Supervisor - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Geotechnical Engineer - Thika')">Geotechnical Engineer - Thika</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Engineering Consultant - Nairobi')">Engineering Consultant - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Survey Technician - Mombasa')">Survey Technician - Mombasa</a></li>
+        </ul>
+    </section>
+
+    <section id="healthcare" class="job-category">
+        <h2>Healthcare Jobs</h2>
+        <ul class="job-list">
+            <li><a href="#apply-form" onclick="showApplyForm('General Practitioner - Nairobi')">General Practitioner - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Surgeon - Mombasa')">Surgeon - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Pediatrician - Nairobi')">Pediatrician - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('House Help - Nairobi')">House Help - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('House Help - Mombasa')">House Help - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Bodaboda Rider - Nairobi')">Bodaboda Rider - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Bodaboda Rider - Mombasa')">Bodaboda Rider - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Bodaboda Rider - Thika')">Bodaboda Rider - Thika</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Radiologist - Nairobi')">Radiologist - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Nurse - Mombasa')">Nurse - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Medical Laboratory Technician - Kisumu')">Medical Laboratory Technician - Kisumu</a></li>
+        </ul>
+    </section>
+
+    <section id="it" class="job-category">
+        <h2>IT Jobs</h2>
+        <ul class="job-list">
+            <li><a href="#apply-form" onclick="showApplyForm('Software Developer - Nairobi')">Software Developer - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Web Developer - Mombasa')">Web Developer - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Network Engineer - Kisumu')">Network Engineer - Kisumu</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cybersecurity Specialist - Nairobi')">Cybersecurity Specialist - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('IT Support Specialist - Mombasa')">IT Support Specialist - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Data Analyst - Nairobi')">Data Analyst - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('IT Manager - Nairobi')">IT Manager - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cloud Solutions Architect - Nairobi')">Cloud Solutions Architect - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Mobile App Developer - Mombasa')">Mobile App Developer - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('DevOps Engineer - Kisumu')">DevOps Engineer - Kisumu</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Database Administrator - Nairobi')">Database Administrator - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cyber Attendant - Nairobi')">Cyber Attendant - Nairobi (Nairobi West)</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cyber Attendant - Nairobi')">Cyber Attendant - Nairobi (Nairobi East)</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cyber Attendant - Nairobi')">Cyber Attendant - Nairobi (CBD)</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cyber Attendant - Nairobi')">Cyber Attendant - Nairobi (Lang’ata)</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cyber Attendant - Nairobi')">Cyber Attendant - Nairobi (Kilimani)</a></li>
+        </ul>
+    </section>
+
+    <section id="marketing" class="job-category">
+        <h2>Marketing Jobs</h2>
+        <ul class="job-list">
+            <li><a href="#apply-form" onclick="showApplyForm('Marketing Manager - Nairobi')">Marketing Manager - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Social Media Specialist - Mombasa')">Social Media Specialist - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Brand Manager - Kisumu')">Brand Manager - Kisumu</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Digital Marketing Specialist - Nairobi')">Digital Marketing Specialist - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Product Marketing Manager - Mombasa')">Product Marketing Manager - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('SEO Specialist - Nairobi')">SEO Specialist - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Marketing Assistant - Nairobi')">Marketing Assistant - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('E-commerce Manager - Mombasa')">E-commerce Manager - Mombasa</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Public Relations Officer - Kisumu')">Public Relations Officer - Kisumu</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Product Launch Specialist - Nairobi')">Product Launch Specialist - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Event Coordinator - Nairobi')">Event Coordinator - Nairobi</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('sales and marketing - Nairobi')">Sales and Marketing - Nairobi</a></li>
+        </ul>
+    </section>
+
+    <!-- New Job Category: Jobs Around Nairobi -->
+    <section id="nairobi-jobs" class="job-category">
+        <h2>Jobs Around Nairobi</h2>
+        <ul class="job-list">
+            <li><a href="#apply-form" onclick="showApplyForm('Sales Executive - Nairobi West')">Sales Executive - Nairobi West</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Customer Service Representative - Nairobi South')">Customer Service Representative - Nairobi South</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Admin Assistant - Nairobi North')">Admin Assistant - Nairobi North</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Security Guard - Nairobi CBD')">Security Guard - Nairobi CBD</a></li>
+            <li><a href="#apply-form" onclick="showApplyForm('Cleaner - Nairobi Central')">Cleaner - Nairobi Central</a></li>
+        </ul>
+    </section>
+
+    <!-- Apply Form -->
+    <section id="apply-form" style="display:none;">
+        <h2>Job Application</h2>
+        <form id="jobApplicationForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="idNumber">ID Number</label>
+                <input type="text" id="idNumber" name="idNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" name="mobileNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="paybill-section">
+                <h4>Payment</h4>
+                <p><b>To proceed, Make a payment of KES 100 to Paybill Number: 522522, Account Number: 129  758 3167.</b></p>
+                <button type="button" class="payment-btn" onclick="openDialogBox()">Proceed to Pay</button>
+            </div>
+
+            <div class="dialog-box" id="dialogBox">
+                <p>Please enter your MPESA message for confirmation:</p>
+                <textarea id="mpesaMessage" rows="4" placeholder="Enter MPESA Message"></textarea>
+                <button type="button" onclick="submitForm()">Submit Application</button>
+                <button type="button" class="cancel-btn" onclick="closeDialogBox()">Cancel</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Kenya Job Portal. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function showApplyForm(job) {
+        document.getElementById('apply-form').style.display = 'block';
+        alert("You have selected the position: " + job);
+    }
+
+    function openDialogBox() {
+        document.getElementById('dialogBox').style.display = 'block';
+    }
+
+    function closeDialogBox() {
+        document.getElementById('dialogBox').style.display = 'none';
+    }
+
+    function submitForm() {
+        let mpesaMessage = document.getElementById('mpesaMessage').value;
+        if (mpesaMessage.trim() !== "") {
+            alert("Application Submitted successfully . A message will be sent to you once your Details are approved. Thank you ! ");
+            document.getElementById('jobApplicationForm').reset();
+            closeDialogBox();
+        } else {
+            alert("Please enter your MPESA message to confirm payment.");
+        }
+    }
+</script>
+
+</body>
+</html>
